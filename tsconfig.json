@@ -4,7 +4,8 @@
     "lib": ["dom", "dom.iterable", "esnext"],
     "outDir": "./dist",
     "paths": {
-      "api/*": ["api/*"]
+      "api/*": ["api/*"],
+      "features/*": ["features/*"]
     },
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,

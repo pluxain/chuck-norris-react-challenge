@@ -1,4 +1,4 @@
-export interface Joke {
+interface Joke {
   id: number;
   joke: string;
 }

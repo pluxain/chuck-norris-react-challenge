@@ -1,6 +1,5 @@
 import apiClient from 'api/apiClient';
 const endpoint = '/jokes';
-import { Joke } from './types';
 type RandomResponse = {
   type: 'success';
   value: Joke;

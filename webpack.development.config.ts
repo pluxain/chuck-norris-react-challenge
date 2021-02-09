@@ -42,6 +42,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       api: path.join(__dirname, 'src', 'api'),
+      features: path.join(__dirname, 'src', 'features'),
     },
   },
   optimization: {

@@ -5,8 +5,15 @@ import App from './App';
 it('renders correctly', () => {
   const tree = TestRenderer.create(<App />).toJSON();
   expect(tree).toMatchInlineSnapshot(`
-    <h1>
-      Chuck Norris React Challenge
-    </h1>
+    Array [
+      <h1>
+        Chuck Norris React Challenge
+      </h1>,
+      <h2
+        className="text-center text-2xl"
+      >
+        Random Joke
+      </h2>,
+    ]
   `);
 });
