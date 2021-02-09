@@ -1,0 +1,17 @@
+# dependencies
+/node_modules
+
+# production
+/dist
+
+# VS Code
+*.code-workspace
+
+# local dev API server
+server
+
+# misc
+.DS_Store
+
+# env files
+.env*
