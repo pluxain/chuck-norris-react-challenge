@@ -5,5 +5,5 @@ const rootReducer = combineReducers({
   jokes: jokesReducer,
 });
 
-export type RooState = ReturnType<typeof rootReducer>;
+export type RootState = ReturnType<typeof rootReducer>;
 export default rootReducer;

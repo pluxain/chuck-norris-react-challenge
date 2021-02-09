@@ -3,6 +3,9 @@
 @import 'tailwindcss/utilities';
 
 @layer base {
+  section {
+    @apply p-6;
+  }
   h1 {
     @apply text-center text-3xl font-extralight my-2;
   }
