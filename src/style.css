@@ -10,3 +10,18 @@
     @apply text-center text-lg font-extralight my-2;
   }
 }
+
+.btn {
+  @apply mx-2 p-2 rounded font-light border  border-black inline-flex items-center justify-center;
+}
+.btn:disabled,
+.btn.disabled {
+  @apply cursor-not-allowed;
+}
+.btn.primary {
+  @apply bg-blue-500 border-blue-500 text-white;
+}
+.btn.primary:disabled,
+.btn.primary.disabled {
+  @apply bg-blue-400 border-blue-400;
+}

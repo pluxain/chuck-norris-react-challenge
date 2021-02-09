@@ -42,6 +42,7 @@ module.exports = {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
     alias: {
       api: path.join(__dirname, 'src', 'api'),
+      components: path.join(__dirname, 'src', 'components'),
       features: path.join(__dirname, 'src', 'features'),
     },
   },

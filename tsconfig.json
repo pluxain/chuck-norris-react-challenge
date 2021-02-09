@@ -5,6 +5,7 @@
     "outDir": "./dist",
     "paths": {
       "api/*": ["api/*"],
+      "components/*": ["components/*"],
       "features/*": ["features/*"]
     },
     "sourceMap": true,
