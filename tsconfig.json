@@ -3,6 +3,9 @@
     "baseUrl": "./src",
     "lib": ["dom", "dom.iterable", "esnext"],
     "outDir": "./dist",
+    "paths": {
+      "api/*": ["api/*"]
+    },
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "module": "esnext",
@@ -16,5 +19,5 @@
     "skipLibCheck": true
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.test.ts", "**/*.test.tsx"]
+  "exclude": ["node_modules"]
 }

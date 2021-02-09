@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const DotEnv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
@@ -11,6 +12,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
+    new DotEnv({
+      path: './.env.development',
+    }),
     new CleanWebpackPlugin({
       cleanStaleWebpackAssets: false,
     }),
@@ -36,6 +40,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
+    alias: {
+      api: path.join(__dirname, 'src', 'api'),
+    },
   },
   optimization: {
     moduleIds: 'deterministic',
