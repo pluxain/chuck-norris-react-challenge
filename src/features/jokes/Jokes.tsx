@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'rootReducer';
 import { fetchRandom } from './slice';
@@ -6,6 +6,7 @@ import Button from 'components/Button';
 import Icon from 'components/Icon';
 
 export default function Joke() {
+  const [share, setShare] = useState(false);
   const { joke, isCommunicating } = useSelector(
     (state: RootState) => state.jokes
   );
@@ -16,19 +17,36 @@ export default function Joke() {
     }
   }, [joke, dispatch]);
   return (
-    <section className="bg-gray-50 flex-col flex md:flex-row">
-      <h2 className="flex-grow font-extrabold tracking-tight text-gray-900">
-        {joke?.joke}
-      </h2>
-      <div className="flex md:flex-none flex-grow md:space-y-1 md:flex-col flex-row flxe-x-1">
-        <Button
-          className="primary flex-grow md:flex-none"
-          disabled={isCommunicating}
-          onClick={() => dispatch(fetchRandom())}
-        >
-          <Icon icon="redo" className="mr-2" /> Reroll
-        </Button>
-      </div>
-    </section>
+    <>
+      <section className="bg-gray-50 flex-col flex md:flex-row">
+        <h2 className="flex-grow font-extrabold tracking-tight text-gray-900">
+          {joke?.joke}
+        </h2>
+        <div className="flex md:flex-none md:w-1/6 flex-grow md:space-y-1 md:flex-col flex-row flxe-x-1">
+          <Button
+            className="secondary flex-1"
+            disabled={isCommunicating}
+            onClick={() => dispatch(fetchRandom())}
+          >
+            <Icon icon="redo" className="mr-2" /> Reroll
+          </Button>
+
+          {share ? (
+            <Button onClick={() => setShare(false)} className="danger flex-1">
+              <Icon icon="ban" className="mr-2" /> Stop sharing
+            </Button>
+          ) : (
+            <Button onClick={() => setShare(true)} className="primary flex-1">
+              <Icon icon="share-alt" className="mr-2" /> Share
+            </Button>
+          )}
+        </div>
+      </section>
+      {share ? (
+        <section>
+          <h2>Add some friends</h2>
+        </section>
+      ) : null}
+    </>
   );
 }
