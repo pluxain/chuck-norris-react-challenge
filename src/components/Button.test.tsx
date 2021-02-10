@@ -39,4 +39,17 @@ describe('Button Component', () => {
     tree.props.onClick();
     expect(onClick).toHaveBeenCalled();
   });
+
+  it('can have a type', () => {
+    const tree = TestRenderer.create(
+      <Button onClick={() => {}} type="submit" />
+    );
+    expect(tree).toMatchInlineSnapshot(`
+      <button
+        className="btn "
+        onClick={[Function]}
+        type="submit"
+      />
+    `);
+  });
 });

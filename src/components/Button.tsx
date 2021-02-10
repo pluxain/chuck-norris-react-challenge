@@ -1,22 +1,23 @@
-import React, { MouseEventHandler } from 'react';
+import React, { ButtonHTMLAttributes, MouseEventHandler } from 'react';
+type ButtonProps = WithChildren<
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    onClick: MouseEventHandler<HTMLButtonElement>;
+  }
+>;
 
-type Props = WithChildren<{
-  className?: string;
-  onClick: MouseEventHandler<HTMLButtonElement>;
-  disabled?: boolean;
-}>;
 export default function Button({
   children,
-  className,
   onClick,
-  disabled,
-}: Props) {
+  className,
+  type,
+  ...props
+}: ButtonProps) {
   return (
     <button
-      type="button"
-      disabled={disabled}
+      type={type ? type : 'button'}
       className={`btn ${className ? className : ''}`}
       onClick={onClick}
+      {...props}
     >
       {children}
     </button>
