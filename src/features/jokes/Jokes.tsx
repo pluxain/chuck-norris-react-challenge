@@ -15,13 +15,20 @@ export default function Joke() {
     }
   }, [joke, dispatch]);
   return (
-    <section className="bg-gray-50 flex flex-row">
+    <section className="bg-gray-50 flex-col flex md:flex-row">
       <h2 className="flex-grow font-extrabold tracking-tight text-gray-900">
-        {joke?.joke}{' '}
+        {joke?.joke}
       </h2>
-      <div className="flex flex-col">
+      <div className="flex md:flex-none flex-grow md:space-y-1 md:flex-col flex-row flxe-x-1">
         <Button
-          className="primary"
+          className="primary flex-grow"
+          disabled={isCommunicating}
+          onClick={() => dispatch(fetchRandom())}
+        >
+          Reroll
+        </Button>
+        <Button
+          className="primary flex-grow"
           disabled={isCommunicating}
           onClick={() => dispatch(fetchRandom())}
         >
