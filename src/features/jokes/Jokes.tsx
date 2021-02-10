@@ -5,6 +5,7 @@ import { fetchRandom } from './slice';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
 import Explanation from './Explanation';
+import Blockquote from 'components/Blockquote';
 
 export default function Joke() {
   const [share, setShare] = useState(false);
@@ -39,9 +40,7 @@ export default function Joke() {
         <hr />
         {help ? <Explanation hideMe={() => setHelp(false)} /> : null}
         <div className="mt-4 p-6 flex-col flex md:flex-row">
-          <blockquote className="p-2 flex items-center justify-center text-xl text-center bg-gray-50 flex-grow font-extrabold tracking-tight text-gray-900">
-            {joke?.joke}
-          </blockquote>
+          <Blockquote>{joke ? joke.joke : ''}</Blockquote>
           <div className="flex md:flex-none md:w-1/6 flex-grow md:space-y-1 md:flex-col flex-row flxe-x-1">
             <Button
               className="secondary flex-1"
