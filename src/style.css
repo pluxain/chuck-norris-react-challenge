@@ -45,4 +45,11 @@
   .btn.danger.disabled {
     @apply bg-danger-400 border-danger-400;
   }
+
+  .notification {
+    @apply border my-2 p-4 rounded text-center;
+  }
+  .notification.info {
+    @apply border-info-600 bg-info-300 text-info-800;
+  }
 }
