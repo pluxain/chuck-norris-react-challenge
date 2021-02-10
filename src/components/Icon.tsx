@@ -6,6 +6,7 @@ import {
 
 import {
   faBan,
+  faCircleNotch,
   faQuestionCircle,
   faRedo,
   faShareAlt,
@@ -14,9 +15,16 @@ import {
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-library.add(faBan, faQuestionCircle, faRedo, faShareAlt, faTimesCircle);
+library.add(
+  faBan,
+  faCircleNotch,
+  faQuestionCircle,
+  faRedo,
+  faShareAlt,
+  faTimesCircle
+);
 
-type IconProps = FontAwesomeIconProps;
+export type IconProps = FontAwesomeIconProps;
 export default function Icon(props: IconProps) {
   return <FontAwesomeIcon {...props} />;
 }
