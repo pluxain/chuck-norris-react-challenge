@@ -23,10 +23,18 @@
     @apply cursor-not-allowed;
   }
   .btn.primary {
-    @apply bg-blue-500 border-blue-500 text-white;
+    @apply bg-primary-500 border-primary-500 active:bg-primary-700 text-white focus:outline-none;
   }
   .btn.primary:disabled,
   .btn.primary.disabled {
-    @apply bg-blue-400 border-blue-400;
+    @apply bg-primary-400 border-primary-400;
+  }
+
+  .btn.secondary {
+    @apply bg-secondary-500 border-secondary-500 active:bg-secondary-700 text-white focus:outline-none;
+  }
+  .btn.secondary:disabled,
+  .btn.secondary.disabled {
+    @apply bg-secondary-400 border-secondary-400;
   }
 }
