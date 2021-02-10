@@ -6,6 +6,7 @@ import Button from 'components/Button';
 import Icon from 'components/Icon';
 import Explanation from './Explanation';
 import Blockquote from 'components/Blockquote';
+import LoadingIndicator from 'components/LoadingIndicator';
 
 export default function Joke() {
   const [share, setShare] = useState(false);
@@ -40,7 +41,15 @@ export default function Joke() {
         <hr />
         {help ? <Explanation hideMe={() => setHelp(false)} /> : null}
         <div className="mt-4 p-6 flex-col flex md:flex-row">
-          <Blockquote>{joke ? joke.joke : ''}</Blockquote>
+          <Blockquote>
+            {isCommunicating ? (
+              <LoadingIndicator size="2x" />
+            ) : joke ? (
+              joke.joke
+            ) : (
+              ''
+            )}
+          </Blockquote>
           <div className="flex md:flex-none md:w-1/6 flex-grow md:space-y-1 md:flex-col flex-row flxe-x-1">
             <Button
               className="secondary flex-1"
