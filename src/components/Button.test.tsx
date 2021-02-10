@@ -13,6 +13,22 @@ describe('Button Component', () => {
       />
     `);
   });
+
+  it('renders children', () => {
+    const tree = TestRenderer.create(
+      <Button onClick={() => false}>Click Me!</Button>
+    ).toJSON();
+    expect(tree).toMatchInlineSnapshot(`
+      <button
+        className="btn "
+        onClick={[Function]}
+        type="button"
+      >
+        Click Me!
+      </button>
+    `);
+  });
+
   it('triggers on click', () => {
     const onClick = jest.fn();
     const tree = TestRenderer.create(
