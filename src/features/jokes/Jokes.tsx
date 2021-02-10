@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'rootReducer';
 import { fetchRandom } from './slice';
 import Button from 'components/Button';
+import Icon from 'components/Icon';
 
 export default function Joke() {
   const { joke, isCommunicating } = useSelector(
@@ -21,18 +22,11 @@ export default function Joke() {
       </h2>
       <div className="flex md:flex-none flex-grow md:space-y-1 md:flex-col flex-row flxe-x-1">
         <Button
-          className="primary flex-grow"
+          className="primary flex-grow md:flex-none"
           disabled={isCommunicating}
           onClick={() => dispatch(fetchRandom())}
         >
-          Reroll
-        </Button>
-        <Button
-          className="primary flex-grow"
-          disabled={isCommunicating}
-          onClick={() => dispatch(fetchRandom())}
-        >
-          Reroll
+          <Icon icon="redo" className="mr-2" /> Reroll
         </Button>
       </div>
     </section>
