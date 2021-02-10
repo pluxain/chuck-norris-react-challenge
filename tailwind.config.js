@@ -7,6 +7,7 @@ module.exports = {
     colors: {
       primary: colors.blue,
       secondary: colors.green,
+      danger: colors.red,
       black: colors.black,
       white: colors.white,
     },
@@ -15,6 +16,7 @@ module.exports = {
   variants: {
     extend: {
       backgroundColor: ['active'],
+      borderColor: ['active'],
     },
   },
   plugins: [],

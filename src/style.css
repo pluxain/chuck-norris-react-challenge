@@ -23,7 +23,7 @@
     @apply cursor-not-allowed;
   }
   .btn.primary {
-    @apply bg-primary-500 border-primary-500 active:bg-primary-700 text-white focus:outline-none;
+    @apply bg-primary-500 border-primary-500 active:bg-primary-700 active:border-primary-700 text-white focus:outline-none;
   }
   .btn.primary:disabled,
   .btn.primary.disabled {
@@ -31,10 +31,18 @@
   }
 
   .btn.secondary {
-    @apply bg-secondary-500 border-secondary-500 active:bg-secondary-700 text-white focus:outline-none;
+    @apply bg-secondary-500 border-secondary-500 active:bg-secondary-700 active:border-secondary-700 text-white focus:outline-none;
   }
   .btn.secondary:disabled,
   .btn.secondary.disabled {
     @apply bg-secondary-400 border-secondary-400;
+  }
+
+  .btn.danger {
+    @apply bg-danger-500 border-danger-500 active:bg-danger-700 active:border-danger-700 text-white focus:outline-none;
+  }
+  .btn.danger:disabled,
+  .btn.danger.disabled {
+    @apply bg-danger-400 border-danger-400;
   }
 }
