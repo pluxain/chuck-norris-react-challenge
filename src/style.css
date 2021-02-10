@@ -16,14 +16,14 @@
 
 @layer components {
   .btn {
-    @apply mx-2 p-2 rounded font-light border  border-black inline-flex items-center justify-center;
+    @apply mx-2 p-2 rounded font-light border  border-black inline-flex items-center justify-center focus:outline-none;
   }
   .btn:disabled,
   .btn.disabled {
     @apply cursor-not-allowed;
   }
   .btn.primary {
-    @apply bg-primary-500 border-primary-500 active:bg-primary-700 active:border-primary-700 text-white focus:outline-none;
+    @apply bg-primary-500 border-primary-500 active:bg-primary-700 active:border-primary-700 text-white;
   }
   .btn.primary:disabled,
   .btn.primary.disabled {
@@ -31,7 +31,7 @@
   }
 
   .btn.secondary {
-    @apply bg-secondary-500 border-secondary-500 active:bg-secondary-700 active:border-secondary-700 text-white focus:outline-none;
+    @apply bg-secondary-500 border-secondary-500 active:bg-secondary-700 active:border-secondary-700 text-white;
   }
   .btn.secondary:disabled,
   .btn.secondary.disabled {
@@ -39,15 +39,23 @@
   }
 
   .btn.danger {
-    @apply bg-danger-500 border-danger-500 active:bg-danger-700 active:border-danger-700 text-white focus:outline-none;
+    @apply bg-danger-500 border-danger-500 active:bg-danger-700 active:border-danger-700 text-white;
   }
   .btn.danger:disabled,
   .btn.danger.disabled {
     @apply bg-danger-400 border-danger-400;
   }
 
+  .btn.info {
+    @apply bg-info-500 border-info-500 active:bg-info-700 active:border-info-700 text-white;
+  }
+  .btn.info:disabled,
+  .btn.info.disabled {
+    @apply bg-info-400 border-info-400;
+  }
+
   .notification {
-    @apply border my-2 p-4 rounded text-center;
+    @apply border my-2 p-2 rounded text-center;
   }
   .notification.info {
     @apply border-info-600 bg-info-300 text-info-800;

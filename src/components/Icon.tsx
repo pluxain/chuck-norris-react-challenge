@@ -4,11 +4,17 @@ import {
   FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome';
 
-import { faBan, faRedo, faShareAlt } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBan,
+  faQuestionCircle,
+  faRedo,
+  faShareAlt,
+  faTimesCircle,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-library.add(faBan, faRedo, faShareAlt);
+library.add(faBan, faQuestionCircle, faRedo, faShareAlt, faTimesCircle);
 
 type IconProps = FontAwesomeIconProps;
 export default function Icon(props: IconProps) {
