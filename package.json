@@ -8,6 +8,7 @@
     "start": "webpack serve --open 'Google Chrome' --config webpack.development.config.ts",
     "test": "jest -o",
     "test:watch": "jest --watch",
+    "test:this": "jest -i",
     "test:full": "jest"
   },
   "keywords": [],
