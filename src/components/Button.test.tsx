@@ -52,4 +52,17 @@ describe('Button Component', () => {
       />
     `);
   });
+
+  it('renders added css classes', () => {
+    const tree = TestRenderer.create(
+      <Button onClick={() => {}} className="some class added" />
+    );
+    expect(tree).toMatchInlineSnapshot(`
+      <button
+        className="btn some class added"
+        onClick={[Function]}
+        type="button"
+      />
+    `);
+  });
 });

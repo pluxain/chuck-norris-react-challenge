@@ -8,14 +8,14 @@ type ButtonProps = WithChildren<
 export default function Button({
   children,
   onClick,
-  className,
+  className = '',
   type,
   ...props
 }: ButtonProps) {
   return (
     <button
       type={type ? type : 'button'}
-      className={`btn ${className ? className : ''}`}
+      className={`btn ${className}`}
       onClick={onClick}
       {...props}
     >
