@@ -1,6 +1,5 @@
 import React, { MouseEventHandler } from 'react';
 import Button from 'components/Button';
-import Icon from 'components/Icon';
 
 type NotificationProps = WithChildren<{
   className?: string;
@@ -30,9 +29,8 @@ export default function Notification({
             className="outline-none focus:outline-none border-0 text-xl"
             onClick={onDispose}
             title="close"
-          >
-            <Icon icon="times-circle" />
-          </Button>
+            icon="times-circle"
+          />
         </div>
       ) : null}
     </div>

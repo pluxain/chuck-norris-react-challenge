@@ -1,13 +1,15 @@
 import React, { ButtonHTMLAttributes, MouseEventHandler } from 'react';
-type ButtonProps = WithChildren<
-  ButtonHTMLAttributes<HTMLButtonElement> & {
-    onClick: MouseEventHandler<HTMLButtonElement>;
-  }
->;
+import Icon, { IconProps } from './Icon';
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+  onClick: MouseEventHandler<HTMLButtonElement>;
+  icon?: IconProps['icon'];
+  text?: string;
+};
 
 export default function Button({
-  children,
   onClick,
+  icon,
+  text,
   className = '',
   type,
   ...props
@@ -19,7 +21,8 @@ export default function Button({
       onClick={onClick}
       {...props}
     >
-      {children}
+      {icon ? <Icon icon={icon} className="mr-2" /> : null}
+      {text ? text : null}
     </button>
   );
 }

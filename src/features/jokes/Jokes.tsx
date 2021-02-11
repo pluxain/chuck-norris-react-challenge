@@ -71,9 +71,9 @@ export default function JokesFeature() {
               className="info flex-1 text-base"
               disabled={help}
               onClick={() => setHelp(true)}
-            >
-              <Icon icon="question-circle" className="mr-2" /> Help
-            </Button>
+              icon="question-circle"
+              text="Help"
+            />
           </span>
         </h1>
         <hr />
@@ -106,9 +106,9 @@ export default function JokesFeature() {
               onClick={() => {
                 fetchJoke({ history });
               }}
-            >
-              <Icon icon="redo" className="mr-2" /> Reroll
-            </Button>
+              icon="redo"
+              text="Reroll"
+            />
 
             <Route path={`/jokes/${joke?.id}`} exact>
               <NavLink
