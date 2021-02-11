@@ -8,3 +8,7 @@ type JokesState = {
   isCommunicating: boolean;
   error: string;
 };
+
+interface Friend {
+  email: string;
+}

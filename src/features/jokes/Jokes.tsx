@@ -61,7 +61,7 @@ export default function JokesFeature() {
   return (
     <>
       <section>
-        <h1 className="flex mt-4 p-6">
+        <h1 className="title">
           <span className="flex-grow">
             Let's have some fun!{' '}
             <small className="text-xs">with the great Chuuuuuuuck</small>

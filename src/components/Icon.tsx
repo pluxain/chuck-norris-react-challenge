@@ -7,9 +7,12 @@ import {
 import {
   faBan,
   faCircleNotch,
+  faPlus,
   faQuestionCircle,
   faRedo,
+  faSave,
   faShareAlt,
+  faTimes,
   faTimesCircle,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,8 +22,11 @@ library.add(
   faBan,
   faCircleNotch,
   faQuestionCircle,
+  faPlus,
   faRedo,
+  faSave,
   faShareAlt,
+  faTimes,
   faTimesCircle
 );
 

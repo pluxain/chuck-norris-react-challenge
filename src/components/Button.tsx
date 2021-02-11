@@ -1,6 +1,6 @@
 import React, { ButtonHTMLAttributes, MouseEventHandler } from 'react';
 import Icon, { IconProps } from './Icon';
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   onClick: MouseEventHandler<HTMLButtonElement>;
   icon?: IconProps['icon'];
   text?: string;
@@ -21,7 +21,7 @@ export default function Button({
       onClick={onClick}
       {...props}
     >
-      {icon ? <Icon icon={icon} className="mr-2" /> : null}
+      {icon ? <Icon icon={icon} className={text ? 'mr-2' : ''} /> : null}
       {text ? text : null}
     </button>
   );

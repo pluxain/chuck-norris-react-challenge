@@ -7,6 +7,7 @@ module.exports = {
     colors: {
       primary: colors.blue,
       secondary: colors.green,
+      cancel: colors.gray,
       danger: colors.red,
       info: colors.blue,
       success: colors.green,

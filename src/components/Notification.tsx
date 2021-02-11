@@ -1,11 +1,11 @@
 import React, { MouseEventHandler } from 'react';
-import Button from 'components/Button';
+import Button, { ButtonProps } from 'components/Button';
 
 type NotificationProps = WithChildren<{
   className?: string;
   type: 'success' | 'error' | 'info' | 'warning';
   disposable?: boolean;
-  onDispose?: MouseEventHandler<HTMLButtonElement>;
+  onDispose?: ButtonProps['onClick'];
 }>;
 
 export default function Notification({
