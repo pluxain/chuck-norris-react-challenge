@@ -10,6 +10,7 @@ interface Share {
 
 type JokesState = {
   joke: Joke;
+  shared: Joke;
   isCommunicating: boolean;
   error: string;
 };

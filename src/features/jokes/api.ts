@@ -1,4 +1,4 @@
-import apiClient from 'api/apiClient';
+import apiClient from 'api/cncrApiClient';
 import sendApiClient from 'api/sendApiClient';
 
 const endpoint = '/jokes';

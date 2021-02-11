@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Route, useHistory, useParams } from 'react-router-dom';
+import { Route, useHistory, useParams } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import { History } from 'history';
 import Button from 'components/Button';
 import Icon from 'components/Icon';
@@ -9,13 +10,16 @@ import LoadingIndicator from 'components/LoadingIndicator';
 import Share from './Share';
 import Explanation from './Explanation';
 import { one, random } from './api';
+import { shareJoke, stopSharingJoke } from './slice';
+
+type FetchAttributes = {
+  id?: number;
+  history: History;
+};
 
 export default function JokesFeature() {
-  type FetchAttributes = {
-    id?: number;
-    history: History;
-  };
   const history = useHistory();
+  const dispatch = useDispatch();
   const { id } = useParams<{ id: string }>();
   const [help, setHelp] = useState(false);
   const [joke, setJoke] = useState<Joke>();
@@ -78,23 +82,17 @@ export default function JokesFeature() {
         </h1>
         <hr />
         {help ? <Explanation hideMe={() => setHelp(false)} /> : null}
-        {error ? (
-          <Notification type="error" disposable>
-            {error}
-          </Notification>
-        ) : null}
+        {error ? <Notification type="error">{error}</Notification> : null}
         <div className="md:h-32 mt-4 flex-col flex md:flex-row">
           <Panel>
             {communicating ? (
               <LoadingIndicator size="2x" />
             ) : joke ? (
-              <>
-                <span
-                  dangerouslySetInnerHTML={{
-                    __html: `#${joke.id}.&nbsp;${joke.joke}`,
-                  }}
-                />
-              </>
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: `#${joke.id}.&nbsp;${joke.joke}`,
+                }}
+              />
             ) : (
               ''
             )}
@@ -111,17 +109,28 @@ export default function JokesFeature() {
             />
 
             <Route path={`/jokes/${joke?.id}`} exact>
-              <NavLink
-                to={`/jokes/${joke?.id}/share`}
+              <Button
                 className="btn primary flex-1"
-              >
-                <Icon icon="share-alt" className="mr-2" /> Share
-              </NavLink>
+                onClick={() => {
+                  if (joke) {
+                    dispatch(shareJoke(joke));
+                    history.push(`/jokes/${joke?.id}/share`);
+                  }
+                }}
+                icon="share-alt"
+                text="Share"
+              />
             </Route>
             <Route path={`/jokes/${joke?.id}/share`} exact>
-              <NavLink to={`/jokes/${joke?.id}`} className="btn danger flex-1">
-                <Icon icon="ban" className="mr-2" /> Stop Sharing
-              </NavLink>
+              <Button
+                className="btn danger flex-1"
+                onClick={() => {
+                  dispatch(stopSharingJoke());
+                  history.push(`/jokes/${joke?.id}`);
+                }}
+                icon="ban"
+                text="Stop sharing"
+              />
             </Route>
           </div>
         </div>

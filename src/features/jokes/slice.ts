@@ -33,7 +33,14 @@ export const fetchJoke = createAsyncThunk(
 const jokeSlice = createSlice({
   name: 'jokes',
   initialState,
-  reducers: {},
+  reducers: {
+    shareJoke(state, action: PayloadAction<Joke>) {
+      state.shared = action.payload;
+    },
+    stopSharingJoke(state) {
+      state.shared = undefined;
+    },
+  },
   extraReducers: builder => {
     builder.addCase(fetchJoke.pending, state => {
       state.isCommunicating = true;
@@ -50,4 +57,5 @@ const jokeSlice = createSlice({
   },
 });
 
+export const { shareJoke, stopSharingJoke } = jokeSlice.actions;
 export default jokeSlice.reducer;

@@ -1,4 +1,8 @@
-import jokesReducer, { fetchJoke } from 'features/jokes/slice';
+import jokesReducer, {
+  fetchJoke,
+  shareJoke,
+  stopSharingJoke,
+} from 'features/jokes/slice';
 
 describe('Jokes reducer', () => {
   it('has an initial state', () => {
@@ -82,6 +86,49 @@ describe('Jokes reducer', () => {
       };
       const actual = jokesReducer({ joke }, { type: fetchJoke.rejected });
       expect(actual.joke).toBe(joke);
+    });
+  });
+
+  describe(`${shareJoke.type} reducer`, () => {
+    it('sets the shared joke', () => {
+      const joke = {
+        id: 123,
+        joke: 'Chuck and Norris is better than Starsky and Hutch',
+      };
+      const actual = jokesReducer(
+        {},
+        {
+          type: shareJoke.type,
+          payload: joke,
+        }
+      );
+      expect(actual.shared).toEqual(joke);
+    });
+    it('does not affect the other part of the state', () => {
+      const joke = {
+        id: 234,
+        joke: 'Illo repudiandae sit qui totam dolor id odio.',
+      };
+      const shared = {
+        id: 123,
+        joke: 'Chuck and Norris is better than Starsky and Hutch',
+      };
+      const error =
+        'The SMTP interface is down, input the back-end sensor so we can bypass the IB bus!';
+      const actual = jokesReducer(
+        {
+          isCommunicating: true,
+          joke,
+          error,
+        },
+        {
+          type: shareJoke.type,
+          payload: shared,
+        }
+      );
+      expect(actual.isCommunicating).toBe(true);
+      expect(actual.error).toBe(error);
+      expect(actual.joke).toEqual(joke);
     });
   });
 });

@@ -7,6 +7,7 @@ import {
 import {
   faBan,
   faCircleNotch,
+  faPaperPlane,
   faPlus,
   faQuestionCircle,
   faRedo,
@@ -22,6 +23,7 @@ library.add(
   faBan,
   faCircleNotch,
   faQuestionCircle,
+  faPaperPlane,
   faPlus,
   faRedo,
   faSave,
