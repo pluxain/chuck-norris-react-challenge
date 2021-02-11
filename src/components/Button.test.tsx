@@ -24,7 +24,7 @@ describe('Button Component', () => {
       >
         <svg
           aria-hidden="true"
-          className="svg-inline--fa fa-redo fa-w-16 mr-2"
+          className="svg-inline--fa fa-redo fa-w-16 "
           data-icon="redo"
           data-prefix="fas"
           focusable="false"

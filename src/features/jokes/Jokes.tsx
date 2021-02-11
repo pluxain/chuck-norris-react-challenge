@@ -84,7 +84,7 @@ export default function JokesFeature() {
         {help ? <Explanation hideMe={() => setHelp(false)} /> : null}
         {error ? <Notification type="error">{error}</Notification> : null}
         <div className="md:h-32 mt-4 flex-col flex md:flex-row">
-          <Panel>
+          <Panel className="mr-2">
             {communicating ? (
               <LoadingIndicator size="2x" />
             ) : joke ? (

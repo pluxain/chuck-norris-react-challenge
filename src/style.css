@@ -28,7 +28,7 @@
 
 @layer components {
   .btn {
-    @apply mx-2 p-2 rounded font-light border  border-black inline-flex items-center justify-center focus:outline-none;
+    @apply p-2 rounded font-light border  border-black inline-flex items-center justify-center focus:outline-none;
   }
   .btn:disabled,
   .btn.disabled {

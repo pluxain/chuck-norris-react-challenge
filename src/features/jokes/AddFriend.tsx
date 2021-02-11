@@ -27,7 +27,7 @@ export default function AddFriend({ addFriend }: AddFriendProps) {
         />
       </div>
       <Button
-        className="primary"
+        className="primary ml-2"
         type="submit"
         onClick={e => {
           e.preventDefault();
@@ -40,7 +40,7 @@ export default function AddFriend({ addFriend }: AddFriendProps) {
         disabled={!canSubmit()}
       />
       <Button
-        className="cancel"
+        className="cancel ml-2"
         onClick={() => setEmail('')}
         text="Cancel"
         icon="times"
