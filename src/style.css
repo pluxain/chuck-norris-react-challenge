@@ -14,7 +14,7 @@
   }
 
   .title {
-    @apply flex mt-4 p-6 justify-center items-center;
+    @apply flex mt-4 py-6 justify-center items-center;
   }
 
   input {

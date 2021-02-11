@@ -44,6 +44,7 @@ module.exports = {
       api: path.join(__dirname, 'src', 'api'),
       components: path.join(__dirname, 'src', 'components'),
       features: path.join(__dirname, 'src', 'features'),
+      utils: path.join(__dirname, 'src', 'utils'),
     },
   },
   optimization: {

@@ -6,7 +6,8 @@
     "paths": {
       "api/*": ["api/*"],
       "components/*": ["components/*"],
-      "features/*": ["features/*"]
+      "features/*": ["features/*"],
+      "utils/*": ["utils/*"]
     },
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,

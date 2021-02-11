@@ -1,6 +1,6 @@
-import Button from 'components/Button';
-import Icon from 'components/Icon';
+import Panel from 'components/Panel';
 import React, { useState } from 'react';
+import sortEmails from 'utils/emails';
 import AddFriend from './AddFriend';
 
 export default function Share() {
@@ -14,19 +14,23 @@ export default function Share() {
         <div className="flex w-3/4 md:w-3/5">
           <AddFriend
             addFriend={(email: string) => {
-              setFriends([...friends, { email }]);
+              setFriends(prevSate => {
+                const newState = [...prevSate, email];
+                return sortEmails(newState);
+              });
             }}
           />
         </div>
       </div>
       {friends.length > 0 ? (
-        <div className="flex justify-center items-center">
-          <ul className="mt-4 flex flex-col w-3/4 md:w-3/5">
+        <Panel className="mt-4 flex flex-col justify-center items-center">
+          <h2>You have friends !</h2>
+          <ul className="flex flex-col w-3/4 md:w-3/5">
             {friends.map((f, i) => (
-              <li key={i}>{f.email}</li>
+              <li key={i}>{f}</li>
             ))}
           </ul>
-        </div>
+        </Panel>
       ) : null}
     </section>
   );

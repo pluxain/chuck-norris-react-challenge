@@ -83,7 +83,7 @@ export default function JokesFeature() {
             {error}
           </Notification>
         ) : null}
-        <div className="md:h-36 mt-4 p-6 flex-col flex md:flex-row">
+        <div className="md:h-32 mt-4 flex-col flex md:flex-row">
           <Panel>
             {communicating ? (
               <LoadingIndicator size="2x" />
@@ -101,7 +101,7 @@ export default function JokesFeature() {
           </Panel>
           <div className="flex md:flex-none md:w-1/6 mt-2 md:mt-0 flex-grow md:space-y-1 md:flex-col flex-row">
             <Button
-              className="secondary flex-1"
+              className="secondary"
               disabled={communicating}
               onClick={() => {
                 fetchJoke({ history });

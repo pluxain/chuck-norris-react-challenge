@@ -9,6 +9,4 @@ type JokesState = {
   error: string;
 };
 
-interface Friend {
-  email: string;
-}
+type Friend = string;
