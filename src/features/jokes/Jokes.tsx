@@ -83,8 +83,8 @@ export default function JokesFeature() {
             {error}
           </Notification>
         ) : null}
-        <div className="mt-4 p-6 flex-col flex md:flex-row">
-          <Panel className="h-34">
+        <div className="md:h-36 mt-4 p-6 flex-col flex md:flex-row">
+          <Panel>
             {communicating ? (
               <LoadingIndicator size="2x" />
             ) : joke ? (
@@ -99,7 +99,7 @@ export default function JokesFeature() {
               ''
             )}
           </Panel>
-          <div className="flex md:flex-none md:w-1/6 flex-grow md:space-y-1 md:flex-col flex-row flxe-x-1">
+          <div className="flex md:flex-none md:w-1/6 mt-2 md:mt-0 flex-grow md:space-y-1 md:flex-col flex-row">
             <Button
               className="secondary flex-1"
               disabled={communicating}
@@ -110,13 +110,19 @@ export default function JokesFeature() {
               <Icon icon="redo" className="mr-2" /> Reroll
             </Button>
 
-            <NavLink
-              to={`/jokes/${joke?.id}/share`}
-              activeClassName="disabled"
-              className="btn primary flex-1"
-            >
-              <Icon icon="share-alt" className="mr-2" /> Share
-            </NavLink>
+            <Route path={`/jokes/${joke?.id}`} exact>
+              <NavLink
+                to={`/jokes/${joke?.id}/share`}
+                className="btn primary flex-1"
+              >
+                <Icon icon="share-alt" className="mr-2" /> Share
+              </NavLink>
+            </Route>
+            <Route path={`/jokes/${joke?.id}/share`} exact>
+              <NavLink to={`/jokes/${joke?.id}`} className="btn danger flex-1">
+                <Icon icon="ban" className="mr-2" /> Stop Sharing
+              </NavLink>
+            </Route>
           </div>
         </div>
       </section>
