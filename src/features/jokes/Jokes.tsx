@@ -45,7 +45,13 @@ export default function Joke() {
             {isCommunicating ? (
               <LoadingIndicator size="2x" />
             ) : joke ? (
-              joke.joke
+              <>
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: `#${joke.id}.&nbsp;${joke.joke}`,
+                  }}
+                />
+              </>
             ) : (
               ''
             )}
