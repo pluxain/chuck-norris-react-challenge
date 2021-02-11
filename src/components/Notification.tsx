@@ -4,13 +4,13 @@ import Icon from 'components/Icon';
 
 type NotificationProps = WithChildren<{
   className?: string;
-  type?: 'success' | 'error' | 'info' | 'warning';
+  type: 'success' | 'error' | 'info' | 'warning';
   disposable?: boolean;
   onDispose?: MouseEventHandler<HTMLButtonElement>;
 }>;
 
 export default function Notification({
-  type = 'error',
+  type,
   className = '',
   disposable = false,
   onDispose = () => {},
@@ -21,11 +21,13 @@ export default function Notification({
       className={`flex flex-row notification ${type} ${className}`}
       role="alert"
     >
-      <div className="flex-grow">{children}</div>
+      <div className="flex-grow flex flex-col justify-center items-center">
+        {children}
+      </div>
       {disposable ? (
         <div className="flex justify-center items-center -mr-2">
           <Button
-            className="outline-none focus:outline-none border-0"
+            className="outline-none focus:outline-none border-0 text-xl"
             onClick={onDispose}
             title="close"
           >

@@ -9,6 +9,8 @@ module.exports = {
       secondary: colors.green,
       danger: colors.red,
       info: colors.blue,
+      success: colors.green,
+      warning: colors.yellow,
       black: colors.black,
       gray: colors.gray,
       white: colors.white,

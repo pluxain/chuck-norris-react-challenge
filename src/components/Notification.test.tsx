@@ -5,20 +5,6 @@ import Button from 'components/Button';
 
 describe('Notification Component', () => {
   it('renders correctly', () => {
-    const tree = TestRenderer.create(<Notification />);
-    expect(tree).toMatchInlineSnapshot(`
-      <div
-        className="flex flex-row notification error "
-        role="alert"
-      >
-        <div
-          className="flex-grow"
-        />
-      </div>
-    `);
-  });
-
-  it('has a type', () => {
     const tree = TestRenderer.create(<Notification type="success" />);
     expect(tree).toMatchInlineSnapshot(`
       <div
@@ -26,7 +12,7 @@ describe('Notification Component', () => {
         role="alert"
       >
         <div
-          className="flex-grow"
+          className="flex-grow flex flex-col justify-center items-center"
         />
       </div>
     `);
@@ -34,17 +20,17 @@ describe('Notification Component', () => {
 
   it('renders children', () => {
     const tree = TestRenderer.create(
-      <Notification>
+      <Notification type="success">
         <p>This is some embedded message.</p>
       </Notification>
     );
     expect(tree).toMatchInlineSnapshot(`
       <div
-        className="flex flex-row notification error "
+        className="flex flex-row notification success "
         role="alert"
       >
         <div
-          className="flex-grow"
+          className="flex-grow flex flex-col justify-center items-center"
         >
           <p>
             This is some embedded message.
@@ -56,7 +42,7 @@ describe('Notification Component', () => {
 
   it('renders added css classes', () => {
     const tree = TestRenderer.create(
-      <Notification className="some class added" />
+      <Notification type="error" className="some class added" />
     );
     expect(tree).toMatchInlineSnapshot(`
       <div
@@ -64,27 +50,29 @@ describe('Notification Component', () => {
         role="alert"
       >
         <div
-          className="flex-grow"
+          className="flex-grow flex flex-col justify-center items-center"
         />
       </div>
     `);
   });
 
   it('can be disposable', () => {
-    const tree = TestRenderer.create(<Notification disposable={true} />);
+    const tree = TestRenderer.create(
+      <Notification type="info" disposable={true} />
+    );
     expect(tree).toMatchInlineSnapshot(`
       <div
-        className="flex flex-row notification error "
+        className="flex flex-row notification info "
         role="alert"
       >
         <div
-          className="flex-grow"
+          className="flex-grow flex flex-col justify-center items-center"
         />
         <div
           className="flex justify-center items-center -mr-2"
         >
           <button
-            className="btn outline-none focus:outline-none border-0"
+            className="btn outline-none focus:outline-none border-0 text-xl"
             onClick={[Function]}
             title="close"
             type="button"
@@ -115,7 +103,7 @@ describe('Notification Component', () => {
   it('runs onDispose when disposable and button is clicked', () => {
     const onDispose = jest.fn();
     const tree = TestRenderer.create(
-      <Notification disposable={true} onDispose={onDispose} />
+      <Notification type="warning" disposable={true} onDispose={onDispose} />
     );
     const instance = tree.root;
 

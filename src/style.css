@@ -57,7 +57,16 @@
   .notification {
     @apply border my-2 p-2 rounded text-center;
   }
+  .notification.error {
+    @apply border-danger-600 bg-danger-300 text-danger-800;
+  }
   .notification.info {
     @apply border-info-600 bg-info-300 text-info-800;
+  }
+  .notification.success {
+    @apply border-success-600 bg-success-300 text-success-800;
+  }
+  .notification.warning {
+    @apply border-warning-600 bg-warning-300 text-warning-800;
   }
 }
