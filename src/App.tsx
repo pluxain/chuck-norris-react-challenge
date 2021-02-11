@@ -41,7 +41,7 @@ export default function App() {
     <>
       <MainNav />
       <Route exact path="/" component={Home} />
-      <Route path="/jokes" component={Jokes} />
+      <Route path="/jokes/:id?" component={Jokes} />
     </>
   );
 }
