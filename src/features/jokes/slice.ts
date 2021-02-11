@@ -1,15 +1,28 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { random } from './api';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { History } from 'history';
+import { one, random } from './api';
 
 const initialState: Partial<JokesState> = {
   isCommunicating: false,
 };
 
-export const fetchRandom = createAsyncThunk<Joke>(
-  'jokes/random',
-  async (_, { rejectWithValue }) => {
+export type FetchAttributes = {
+  id?: number;
+  history: History;
+};
+export const fetchJoke = createAsyncThunk(
+  'jokes/fetch',
+  async ({ id, history }: FetchAttributes, { rejectWithValue }) => {
     try {
-      const joke = await random();
+      let joke;
+      if (id) {
+        joke = await one(id);
+      } else {
+        joke = await random();
+      }
+      if (history.location.pathname !== `/jokes/${joke.id}`) {
+        history.push(`/jokes/${joke.id}`);
+      }
       return joke;
     } catch (err) {
       return rejectWithValue(err.message as string);
@@ -22,15 +35,15 @@ const jokeSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(fetchRandom.pending, state => {
+    builder.addCase(fetchJoke.pending, state => {
       state.isCommunicating = true;
       state.error = undefined;
     });
-    builder.addCase(fetchRandom.fulfilled, (state, action) => {
+    builder.addCase(fetchJoke.fulfilled, (state, action) => {
       state.isCommunicating = false;
       state.joke = action.payload;
     });
-    builder.addCase(fetchRandom.rejected, (state, action) => {
+    builder.addCase(fetchJoke.rejected, (state, action) => {
       state.isCommunicating = false;
       state.error = action.payload as string;
     });
