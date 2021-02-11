@@ -3,6 +3,11 @@ interface Joke {
   joke: string;
 }
 
+interface Share {
+  joke: Joke;
+  friends: Friend[];
+}
+
 type JokesState = {
   joke: Joke;
   isCommunicating: boolean;
