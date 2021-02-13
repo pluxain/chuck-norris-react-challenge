@@ -7,7 +7,7 @@ describe('Panel Component', () => {
     const tree = TestRenderer.create(<Panel />);
     expect(tree).toMatchInlineSnapshot(`
       <div
-        className="p-2 flex items-center justify-center text-xl text-center bg-gray-50 flex-grow font-extrabold tracking-tight text-gray-900 "
+        className="notification flex items-center justify-center text-xl border-gray-600 bg-gray-100 flex-grow font-extrabold tracking-tight text-gray-600 "
       />
     `);
   });
@@ -16,7 +16,7 @@ describe('Panel Component', () => {
     const tree = TestRenderer.create(<Panel className="some class added" />);
     expect(tree).toMatchInlineSnapshot(`
       <div
-        className="p-2 flex items-center justify-center text-xl text-center bg-gray-50 flex-grow font-extrabold tracking-tight text-gray-900 some class added"
+        className="notification flex items-center justify-center text-xl border-gray-600 bg-gray-100 flex-grow font-extrabold tracking-tight text-gray-600 some class added"
       />
     `);
   });
@@ -25,7 +25,7 @@ describe('Panel Component', () => {
     const tree = TestRenderer.create(<Panel>This is some Panel test</Panel>);
     expect(tree).toMatchInlineSnapshot(`
       <div
-        className="p-2 flex items-center justify-center text-xl text-center bg-gray-50 flex-grow font-extrabold tracking-tight text-gray-900 "
+        className="notification flex items-center justify-center text-xl border-gray-600 bg-gray-100 flex-grow font-extrabold tracking-tight text-gray-600 "
       >
         This is some Panel test
       </div>
