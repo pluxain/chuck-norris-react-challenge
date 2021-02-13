@@ -46,17 +46,15 @@ export default function Share() {
         <span className="flex-grow">Share a joke with friends</span>
       </h1>
       {error ? <Notification type="error">{error}</Notification> : null}
-      <div className="flex justify-center items-center">
-        <div className="flex w-3/4 md:w-3/5">
-          <AddFriend
-            addFriend={(email: string) => {
-              setFriends(prevSate => {
-                const newState = [...prevSate, email];
-                return sortEmails(newState);
-              });
-            }}
-          />
-        </div>
+      <div className="flex">
+        <AddFriend
+          addFriend={(email: string) => {
+            setFriends(prevSate => {
+              const newState = [...prevSate, email];
+              return sortEmails(newState);
+            });
+          }}
+        />
       </div>
       {friends.length > 0 ? (
         <Panel className="mt-4 flex flex-col justify-center items-center">

@@ -11,7 +11,6 @@ import {
   faPlus,
   faQuestionCircle,
   faRedo,
-  faSave,
   faShareAlt,
   faTimes,
   faTimesCircle,
@@ -26,7 +25,6 @@ library.add(
   faPaperPlane,
   faPlus,
   faRedo,
-  faSave,
   faShareAlt,
   faTimes,
   faTimesCircle

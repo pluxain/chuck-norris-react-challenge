@@ -12,8 +12,12 @@ export default function AddFriend({ addFriend }: AddFriendProps) {
   const canSubmit = () => validator.isEmail(email);
 
   return (
-    <form className="flex flex-row w-full">
-      <div className="flex-grow">
+    <form className="flex md:flex-row md:justify-end flex-col w-full">
+      <div
+        className={`my-2 md:mr-2 md:w-1/2 flex flex-row form-control ${
+          !canSubmit() ? 'invalid' : ''
+        }`}
+      >
         <input
           required
           id="email"
@@ -22,30 +26,30 @@ export default function AddFriend({ addFriend }: AddFriendProps) {
           autoFocus
           value={email}
           placeholder="What's your friend's email"
-          className={`${!canSubmit() ? 'invalid' : ''}`}
           onChange={e => setEmail(e.target.value)}
         />
+        <Button
+          className="ml-2"
+          onClick={() => setEmail('')}
+          icon="times"
+          disabled={email.trim() === ''}
+        />
       </div>
-      <Button
-        className="primary ml-2"
-        type="submit"
-        onClick={e => {
-          e.preventDefault();
-          addFriend(email);
-          setEmail('');
-          input?.current?.focus();
-        }}
-        text="Add"
-        icon="save"
-        disabled={!canSubmit()}
-      />
-      <Button
-        className="cancel ml-2"
-        onClick={() => setEmail('')}
-        text="Cancel"
-        icon="times"
-        disabled={email.trim() === ''}
-      />
+      <div className="flex md:flex-none md:w-1/6 my-2 flex-grow md:space-y-1 md:flex-col flex-row">
+        <Button
+          className="primary flex-grow"
+          type="submit"
+          onClick={e => {
+            e.preventDefault();
+            addFriend(email);
+            setEmail('');
+            input?.current?.focus();
+          }}
+          text="Add"
+          icon="plus"
+          disabled={!canSubmit()}
+        />
+      </div>
     </form>
   );
 }

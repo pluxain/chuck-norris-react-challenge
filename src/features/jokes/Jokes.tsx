@@ -66,25 +66,19 @@ export default function JokesFeature() {
     <>
       <section>
         <h1 className="title">
-          <span className="flex-grow">
-            Let's have some fun!{' '}
-            <small className="text-xs">with the great Chuuuuuuuck</small>
-          </span>
-          <span className="md:w-1/6 flex">
-            <Button
-              className="info flex-1 text-base"
-              disabled={help}
-              onClick={() => setHelp(true)}
-              icon="question-circle"
-              text="Help"
-            />
-          </span>
+          Let's have some fun!{' '}
+          <Button
+            className="text-base"
+            disabled={help}
+            onClick={() => setHelp(true)}
+            icon="question-circle"
+          />
         </h1>
         <hr />
         {help ? <Explanation hideMe={() => setHelp(false)} /> : null}
         {error ? <Notification type="error">{error}</Notification> : null}
-        <div className="md:h-32 mt-4 flex-col flex md:flex-row">
-          <Panel className="mr-2">
+        <div className="mt-4 flex-col flex md:flex-row">
+          <Panel className="md:h-32 h-60 md:mr-2">
             {communicating ? (
               <LoadingIndicator size="2x" />
             ) : joke ? (
@@ -97,9 +91,9 @@ export default function JokesFeature() {
               ''
             )}
           </Panel>
-          <div className="flex md:flex-none md:w-1/6 mt-2 md:mt-0 flex-grow md:space-y-1 md:flex-col flex-row">
+          <div className="flex md:flex-none md:w-1/6 my-2 flex-grow md:space-y-1 md:flex-col flex-row">
             <Button
-              className="secondary"
+              className="secondary mr-2 md:mr-0"
               disabled={communicating}
               onClick={() => {
                 fetchJoke({ history });

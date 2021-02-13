@@ -4,7 +4,7 @@
 
 @layer base {
   section {
-    @apply p-6;
+    @apply px-6 py-2;
   }
   h1 {
     @apply text-center text-3xl font-extralight my-2;
@@ -18,75 +18,81 @@
   }
 
   input {
-    @apply w-full py-2 border-b border-primary-600 outline-none;
+    @apply w-full py-2 outline-none;
+  }
+  .form-control {
+    @apply border-b border-primary-600;
   }
 
-  input.invalid {
-    @apply text-danger-500 border-danger-500;
+  .form-control.invalid {
+    @apply border-danger-500;
+  }
+  .form-control.invalid > input {
+    @apply text-danger-500;
   }
 }
 
 @layer components {
   .btn {
-    @apply p-2 rounded font-light border  border-black inline-flex items-center justify-center focus:outline-none;
+    @apply p-2 font-light inline-flex items-center justify-center focus:outline-none;
   }
   .btn:disabled,
   .btn.disabled {
     @apply cursor-not-allowed;
   }
   .btn.primary {
-    @apply bg-primary-500 border-primary-500 active:bg-primary-700 active:border-primary-700 text-white;
+    @apply bg-primary-500 active:bg-primary-700 text-white;
   }
   .btn.primary:disabled,
   .btn.primary.disabled {
-    @apply bg-primary-400 border-primary-400;
+    @apply bg-primary-400;
   }
 
   .btn.secondary {
-    @apply bg-secondary-500 border-secondary-500 active:bg-secondary-700 active:border-secondary-700 text-white;
+    @apply bg-secondary-500 active:bg-secondary-700 text-white;
   }
   .btn.secondary:disabled,
   .btn.secondary.disabled {
-    @apply bg-secondary-400 border-secondary-400;
+    @apply bg-secondary-400;
   }
 
   .btn.cancel {
-    @apply bg-cancel-500 border-cancel-500 active:bg-cancel-700 active:border-cancel-700 text-white;
+    @apply bg-cancel-500 active:bg-cancel-700 text-white;
   }
   .btn.cancel:disabled,
   .btn.cancel.disabled {
-    @apply bg-cancel-400 border-cancel-400;
+    @apply bg-cancel-400;
   }
 
   .btn.danger {
-    @apply bg-danger-500 border-danger-500 active:bg-danger-700 active:border-danger-700 text-white;
+    @apply bg-danger-500 active:bg-danger-700 text-white;
   }
   .btn.danger:disabled,
   .btn.danger.disabled {
-    @apply bg-danger-400 border-danger-400;
+    @apply bg-danger-400;
   }
 
   .btn.info {
-    @apply bg-info-500 border-info-500 active:bg-info-700 active:border-info-700 text-white;
+    @apply bg-info-500 active:bg-info-700 text-white;
   }
   .btn.info:disabled,
   .btn.info.disabled {
-    @apply bg-info-400 border-info-400;
+    @apply bg-info-400;
   }
 
   .notification {
-    @apply border my-2 p-2 rounded text-center;
+    @apply border-l-4 my-2 p-2 text-center;
   }
   .notification.error {
-    @apply border-danger-600 bg-danger-300 text-danger-800;
+    @apply border-danger-600 bg-danger-300 text-danger-600;
   }
   .notification.info {
-    @apply border-info-600 bg-info-300 text-info-800;
+    @apply border-info-600 bg-info-300 text-info-600;
   }
   .notification.success {
-    @apply border-success-600 bg-success-300 text-success-800;
+    @apply border-success-600 bg-success-300 text-success-600;
   }
   .notification.warning {
-    @apply border-warning-600 bg-warning-300 text-warning-800;
+    @apply border-warning-600 bg-warning-300 text-warning-600;
   }
 }

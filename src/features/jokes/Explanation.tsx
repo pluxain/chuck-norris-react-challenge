@@ -6,7 +6,7 @@ type ExplanationProps = {
 export default function Explanation({ hideMe }: ExplanationProps) {
   return (
     <Notification
-      className="text-xl font-light"
+      className="text-xl font-light absolute top-20 right-6 left-6 shadow-lg inner-shadow"
       type="info"
       disposable={true}
       onDispose={hideMe}
