@@ -15,7 +15,7 @@ describe('Button Component', () => {
   });
 
   it('renders an icon', () => {
-    const tree = create(<Button onClick={() => {}} icon="redo" />).toJSON();
+    const tree = create(<Button onClick={() => false} icon="redo" />).toJSON();
     expect(tree).toMatchInlineSnapshot(`
       <button
         className="btn "
@@ -45,7 +45,7 @@ describe('Button Component', () => {
 
   it('renders a text', () => {
     const tree = create(
-      <Button onClick={() => {}} text="Click Me!" />
+      <Button onClick={() => false} text="Click Me!" />
     ).toJSON();
     expect(tree).toMatchInlineSnapshot(`
       <button
@@ -70,7 +70,7 @@ describe('Button Component', () => {
   });
 
   it('can have a type', () => {
-    const tree = create(<Button onClick={() => {}} type="submit" />);
+    const tree = create(<Button onClick={() => false} type="submit" />);
     expect(tree).toMatchInlineSnapshot(`
       <button
         className="btn "
@@ -82,7 +82,7 @@ describe('Button Component', () => {
 
   it('renders added css classes', () => {
     const tree = create(
-      <Button onClick={() => {}} className="some class added" />
+      <Button onClick={() => false} className="some class added" />
     );
     expect(tree).toMatchInlineSnapshot(`
       <button

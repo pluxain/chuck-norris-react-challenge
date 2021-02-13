@@ -1,5 +1,6 @@
 import apiClient from 'api/cncrApiClient';
 import sendApiClient from 'api/sendApiClient';
+import { Friend, Joke, Share } from './types';
 
 const endpoint = '/jokes';
 type JokesAPIResponse = {

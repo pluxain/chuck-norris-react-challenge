@@ -1,6 +1,7 @@
 import mockedAxios from 'axios';
 import { mocked } from 'ts-jest/utils';
 import { one, random, send } from 'features/jokes/api';
+import { Joke } from 'features/jokes/types';
 
 describe('Jokes api', () => {
   it('should get a random joke', async () => {

@@ -9,5 +9,4 @@ export default function sort(emails: string[]): string[] {
     const parts = email.split('@');
     return parts.reverse().join('@');
   });
-  return sorteds;
 }

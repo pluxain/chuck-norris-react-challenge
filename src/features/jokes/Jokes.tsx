@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Route, useHistory, useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { History } from 'history';
+import { Joke } from './types';
 import Button from 'components/Button';
-import Icon from 'components/Icon';
 import Notification from 'components/Notification';
 import Panel from 'components/Panel';
 import LoadingIndicator from 'components/LoadingIndicator';
@@ -66,7 +66,7 @@ export default function JokesFeature() {
     <>
       <section>
         <h1 className="title">
-          Let's have some fun!{' '}
+          Let&apos;s have some fun!{' '}
           <Button
             className="text-base"
             disabled={help}

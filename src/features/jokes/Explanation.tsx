@@ -13,9 +13,11 @@ export default function Explanation({ hideMe }: ExplanationProps) {
     >
       <p>
         So, Chuck (Norris, in case you still wonder) is a Legend. No, he is a
-        MYTH. Let's discover together how this arrived.
+        MYTH. Let&apos;s discover together how this arrived.
       </p>
-      <p>Here you can find some of the treasures about Norris' Mythology.</p>
+      <p>
+        Here you can find some of the treasures about Norris&apos;s Mythology.
+      </p>
     </Notification>
   );
 }

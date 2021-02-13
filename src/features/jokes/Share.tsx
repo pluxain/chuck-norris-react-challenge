@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { History } from 'history';
 import { RootState } from 'rootReducer';
+import { Friend, Share } from './types';
 import sortEmails from 'utils/emails';
 import Button from 'components/Button';
 import Notification from 'components/Notification';
@@ -28,14 +29,14 @@ export default function Share() {
     setCommunicating(true);
     setError('');
     try {
-      const reponse = await send(friends, joke);
+      await send(friends, joke);
+      dispatch(stopSharingJoke());
+      setCommunicating(false);
       if (history.location.pathname !== `/jokes/${joke.id}`) {
         history.push(`/jokes/${joke.id}`);
       }
-      dispatch(stopSharingJoke());
     } catch (err) {
       setError(err.message);
-    } finally {
       setCommunicating(false);
     }
   }

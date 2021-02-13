@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { History } from 'history';
+import { Joke, JokesState } from './types';
 import { one, random } from './api';
 
 const initialState: Partial<JokesState> = {

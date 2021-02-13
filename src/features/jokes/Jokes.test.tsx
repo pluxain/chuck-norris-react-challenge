@@ -28,5 +28,6 @@ describe.skip('Jokes feature main Component', () => {
         <JokesFeature />
       </Router>
     );
+    expect(tree).toMatchInlineSnapshot();
   });
 });

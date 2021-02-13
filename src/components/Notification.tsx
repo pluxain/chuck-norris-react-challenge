@@ -1,4 +1,5 @@
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
+import { WithChildren } from 'types';
 import Button, { ButtonProps } from 'components/Button';
 
 type NotificationProps = WithChildren<{
@@ -12,7 +13,9 @@ export default function Notification({
   type,
   className = '',
   disposable = false,
-  onDispose = () => {},
+  onDispose = () => {
+    return false;
+  },
   children,
 }: NotificationProps) {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import TestRenderer, { ReactTestRendererJSON } from 'react-test-renderer';
+import TestRenderer from 'react-test-renderer';
 import Notification from 'components/Notification';
 import Button from 'components/Button';
 

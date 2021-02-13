@@ -1,18 +1,18 @@
-interface Joke {
+export interface Joke {
   id: number;
   joke: string;
 }
 
-interface Share {
+export interface Share {
   joke: Joke;
   friends: Friend[];
 }
 
-type JokesState = {
+export type JokesState = {
   joke: Joke;
   shared: Joke;
   isCommunicating: boolean;
   error: string;
 };
 
-type Friend = string;
+export type Friend = string;

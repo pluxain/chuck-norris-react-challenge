@@ -131,4 +131,43 @@ describe('Jokes reducer', () => {
       expect(actual.joke).toEqual(joke);
     });
   });
+
+  describe(`${stopSharingJoke.type} reducer`, () => {
+    it('revert the shared joke', () => {
+      const actual = jokesReducer(
+        {
+          shared: {
+            id: 123,
+            joke: 'We need to transmit the virtual JBOD application!',
+          },
+        },
+        {
+          type: stopSharingJoke.type,
+        }
+      );
+      expect(actual.shared).toBe(undefined);
+    });
+
+    it('does not affect the other part of the state', () => {
+      const joke = {
+        id: 234,
+        joke: 'Illo repudiandae sit qui totam dolor id odio.',
+      };
+      const error =
+        'The SMTP interface is down, input the back-end sensor so we can bypass the IB bus!';
+      const actual = jokesReducer(
+        {
+          isCommunicating: true,
+          joke,
+          error,
+        },
+        {
+          type: stopSharingJoke.type,
+        }
+      );
+      expect(actual.isCommunicating).toBe(true);
+      expect(actual.error).toBe(error);
+      expect(actual.joke).toEqual(joke);
+    });
+  });
 });

@@ -1,6 +1,6 @@
-import React, { ChangeEvent, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import validator from 'validator';
-import Button, { ButtonProps } from 'components/Button';
+import Button from 'components/Button';
 
 type AddFriendProps = {
   addFriend: (email: string) => void;

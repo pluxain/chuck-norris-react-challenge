@@ -1,4 +1,5 @@
 import React from 'react';
+import { WithChildren } from 'types';
 
 type PanelProps = WithChildren<{
   className?: string;
