@@ -1,6 +1,6 @@
 {
   "name": "chuck.norris.react.challenge",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Find and share some funny quotes by THE Chuck Norris",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "test:this": "jest -i",
     "test:full": "jest"
   },
-  "keywords": [],
+  "keywords": ["react", "react-router", "react-redux"],
   "author": "pascal.luxain@gmail.com",
   "license": "ISC",
   "devDependencies": {
