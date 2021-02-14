@@ -17,7 +17,7 @@ export async function one(id: number): Promise<Joke> {
   return res.data.value;
 }
 
-export async function send(friends: Friend[], joke: Joke): Promise<Share> {
+export async function send(joke: Joke, friends: Friend[]): Promise<Share> {
   const res = await sendApiClient.post('/shares', { friends, joke });
   return res.data;
 }

@@ -17,6 +17,10 @@
     @apply flex mt-4 py-6 justify-center items-center;
   }
 
+  .title.main {
+    @apply border-b;
+  }
+
   input {
     @apply w-full py-2 outline-none;
   }

@@ -54,7 +54,7 @@ describe('Jokes api', () => {
       data: { friends, joke },
     });
 
-    const actual = await send(friends, joke);
+    const actual = await send(joke, friends);
     expect(actual).toEqual(expected);
     expect(mockedAxios.post).toHaveBeenCalledWith(`/shares`, { friends, joke });
   });

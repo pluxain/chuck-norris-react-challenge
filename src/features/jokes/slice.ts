@@ -1,62 +1,80 @@
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { History } from 'history';
-import { Joke, JokesState } from './types';
-import { one, random } from './api';
+import {
+  createAsyncThunk,
+  createEntityAdapter,
+  createSlice,
+  PayloadAction,
+} from '@reduxjs/toolkit';
+import { BaseState, FetchAttributes, Joke, ShareAttributes } from './types';
+import { one, random, send } from './api';
 
-const initialState: Partial<JokesState> = {
-  isCommunicating: false,
+const jokesAdapter = createEntityAdapter<Joke>();
+const additionalState: BaseState = {
+  fetching: false,
+  sharing: false,
 };
 
-export type FetchAttributes = {
-  id?: number;
-  history: History;
-};
 export const fetchJoke = createAsyncThunk(
   'jokes/fetch',
-  async ({ id, history }: FetchAttributes, { rejectWithValue }) => {
-    try {
-      let joke;
-      if (id) {
-        joke = await one(id);
-      } else {
-        joke = await random();
-      }
-      if (history.location.pathname !== `/jokes/${joke.id}`) {
-        history.push(`/jokes/${joke.id}`);
-      }
-      return joke;
-    } catch (err) {
-      return rejectWithValue(err.message as string);
+  async ({ id, history }: FetchAttributes) => {
+    let joke;
+    if (id) {
+      joke = await one(id);
+    } else {
+      joke = await random();
     }
+    history.push(`/jokes/${joke.id}`);
+    return joke;
+  }
+);
+
+export const postJoke = createAsyncThunk(
+  'jokes/share',
+  async ({ friends, joke, history }: ShareAttributes) => {
+    await send(joke, friends);
+    history.push(`/jokes/${joke.id}`);
   }
 );
 
 const jokeSlice = createSlice({
   name: 'jokes',
-  initialState,
-  reducers: {
-    shareJoke(state, action: PayloadAction<Joke>) {
-      state.shared = action.payload;
-    },
-    stopSharingJoke(state) {
-      state.shared = undefined;
-    },
-  },
+  initialState: jokesAdapter.getInitialState(additionalState),
+  reducers: {},
   extraReducers: builder => {
     builder.addCase(fetchJoke.pending, state => {
-      state.isCommunicating = true;
-      state.error = undefined;
+      state.fetching = true;
+      state.fetchError = undefined;
     });
-    builder.addCase(fetchJoke.fulfilled, (state, action) => {
-      state.isCommunicating = false;
-      state.joke = action.payload;
-    });
+
+    builder.addCase(
+      fetchJoke.fulfilled,
+      (state, action: PayloadAction<Joke>) => {
+        const joke = action.payload;
+        state.fetching = false;
+        if (!state.ids.includes(joke.id)) {
+          jokesAdapter.addOne(state, joke);
+        }
+      }
+    );
+
     builder.addCase(fetchJoke.rejected, (state, action) => {
-      state.isCommunicating = false;
-      state.error = action.payload as string;
+      state.fetching = false;
+      state.fetchError = action.error.message;
+    });
+
+    builder.addCase(postJoke.pending, state => {
+      state.sharing = true;
+      state.shareError = undefined;
+    });
+
+    builder.addCase(postJoke.fulfilled, state => {
+      state.sharing = false;
+    });
+
+    builder.addCase(postJoke.rejected, (state, action) => {
+      state.sharing = false;
+      state.shareError = action.error.message;
     });
   },
 });
 
-export const { shareJoke, stopSharingJoke } = jokeSlice.actions;
 export default jokeSlice.reducer;
