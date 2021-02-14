@@ -1,9 +1,18 @@
 const colors = require('tailwindcss/colors');
 
 module.exports = {
-  purge: ['./src/**/*.html', './src/**/*.js'],
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.html', './src/**/*.tsx', './src/style.css'],
+    options: {
+      keyframes: true,
+    },
+  },
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      md: '768px',
+    },
     colors: {
       primary: colors.blue,
       secondary: colors.green,

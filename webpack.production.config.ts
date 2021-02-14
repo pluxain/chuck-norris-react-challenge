@@ -3,6 +3,8 @@ const DotEnv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
 module.exports = {
   mode: 'production',
   entry: path.resolve(__dirname, 'src', 'index.tsx'),
@@ -56,7 +58,15 @@ module.exports = {
           name: 'vendors',
           chunks: 'all',
         },
+        styles: {
+          name: 'styles',
+          type: 'css/mini-extract',
+          chunks: 'all',
+          enforce: true,
+        },
       },
     },
+    minimizer: [`...`, new CssMinimizerPlugin()],
   },
+  devtool: 'source-map',
 };
