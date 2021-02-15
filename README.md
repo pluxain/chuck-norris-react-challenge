@@ -1,10 +1,14 @@
 # Chuck Norris React Challenge
 
-## Development
+## First steps
 
 First of all you need to clone this repository locally.
 
 Then you can run `npm install` locally.
+
+To have the share api server running, you need to go in the `server` folder and copy the `db.sample.json` to `db.json`.
+
+## Development
 
 To launch the development version you can run `npm start`.
 
